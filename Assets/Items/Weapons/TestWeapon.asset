@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cafe2844c011f0f4dbe415e34d3cdf1b, type: 3}
+  m_Name: TestWeapon
+  m_EditorClassIdentifier: 
+  weaponDamage: 10
+  weaponSpeed: 0.5
+  weaponType: 1
+  range: 3
+  weaponSize: 1
+  projectile: {fileID: 4476389506812386795, guid: 5093513cb8b36404690d15a6f5f1330f, type: 3}
+  numOfProjectiles: 8
+  weaponDirection: 5
+  weaponAngle: 45
+  weaponLevel: 1
+  isUpgradable: 1
+  isUpgraded: 0
+  upgradeToFuse: {fileID: 11400000, guid: f38a9722607f686438d9ed977795e414, type: 2}
+  weaponUpgrade: {fileID: 11400000, guid: 55dab6d4d35bd054c87ca3e11540bddc, type: 2}
+  canBeUsed: 0
