@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 675f237ecf571ef44afbac76d16a9095, type: 3}
   m_Name: TestRangeWeapon
   m_EditorClassIdentifier: 
-  weaponDamage: 0
-  weaponSpeed: 0
+  weaponDamage: 10
+  weaponSpeed: 0.5
   weaponRange: 0
   weaponLevel: 1
   isUpgradable: 0
@@ -21,6 +21,8 @@ MonoBehaviour:
   upgradeToFuse: {fileID: 0}
   weaponUpgrade: {fileID: 0}
   canBeUsed: 0
-  projectileToShoot: {fileID: 0}
-  numOfProjectiles: 0
-  weaponAngle: 0
+  projectileToShoot: {fileID: 4476389506812386795, guid: 5093513cb8b36404690d15a6f5f1330f, type: 3}
+  numOfProjectiles: 4
+  weaponAngle: 90
+  numWavesOfProjectiles: 3
+  timeBetweenProjectiles: 0.5

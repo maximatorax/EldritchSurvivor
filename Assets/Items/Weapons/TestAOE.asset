@@ -12,13 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25e2e84ad5ad8ef47b18e4a4c022d116, type: 3}
   m_Name: TestAOE
   m_EditorClassIdentifier: 
-  weaponDamage: 0
-  weaponSpeed: 0
-  weaponRange: 0
+  weaponDamage: 5
+  weaponSpeed: 3
+  weaponRange: 1
   weaponLevel: 1
   isUpgradable: 0
   isUpgraded: 0
   upgradeToFuse: {fileID: 0}
   weaponUpgrade: {fileID: 0}
   canBeUsed: 0
-  weaponSize: 0

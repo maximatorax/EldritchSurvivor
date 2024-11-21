@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c3fc65a425c789498a6b49ffdce84dd, type: 3}
   m_Name: TestMeleeWeapon
   m_EditorClassIdentifier: 
-  weaponDamage: 0
-  weaponSpeed: 0
-  weaponRange: 0
+  weaponDamage: 10
+  weaponSpeed: 0.5
+  weaponRange: 2
   weaponLevel: 1
   isUpgradable: 0
   isUpgraded: 0
   upgradeToFuse: {fileID: 0}
   weaponUpgrade: {fileID: 0}
-  canBeUsed: 0
-  weaponSize: 0
-  weaponDirection: 0
+  canBeUsed: 1
+  weaponSize: 0.5
+  weaponDirection: 2
