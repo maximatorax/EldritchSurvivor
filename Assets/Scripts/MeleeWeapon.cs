@@ -8,7 +8,6 @@ public class MeleeWeapon : Weapon
 
     public override void UseWeapon(Transform transform)
     {
-        base.UseWeapon();
         Collider2D[] hits = new Collider2D[] { };
         switch (weaponDirection)
         {
