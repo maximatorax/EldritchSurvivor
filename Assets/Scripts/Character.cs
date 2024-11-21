@@ -8,10 +8,7 @@ public class Character : MonoBehaviour
     public float Speed;
     public float AttackSpeed;
 
-    public virtual void Attack()
-    {
-        
-    }
+    public virtual void Attack() { }
 
     protected virtual void DoDamage(Collider2D target, int damage)
     {
