@@ -4,18 +4,6 @@ using UnityEngine;
 
 public class Weapon : ScriptableObject
 {
-    public enum WeaponDirection
-    {
-        N,
-        NE,
-        E,
-        SE,
-        S,
-        SW,
-        W,
-        NW
-    }
-
     public int weaponDamage;
     public float weaponSpeed;
     public float weaponRange;

@@ -3,6 +3,18 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Weapon/Melee")]
 public class MeleeWeapon : Weapon
 {
+    public enum WeaponDirection
+    {
+        N,
+        NE,
+        E,
+        SE,
+        S,
+        SW,
+        W,
+        NW
+    }
+    
     public float weaponSize;
     public WeaponDirection weaponDirection;
 
@@ -11,49 +23,49 @@ public class MeleeWeapon : Weapon
         Collider2D[] hits = new Collider2D[] { };
         switch (weaponDirection)
         {
-            case Weapon.WeaponDirection.N:
+            case WeaponDirection.N:
                 hits = Physics2D.OverlapBoxAll(
                     transform.position + new Vector3(0f, weaponRange / 2f, 0f),
                     new Vector2(weaponSize, weaponRange),
                     0, LayerMask.GetMask("Enemy"));
                 break;
-            case Weapon.WeaponDirection.NE:
+            case WeaponDirection.NE:
                 hits = Physics2D.OverlapBoxAll(
                     transform.position + new Vector3(transform.localScale.x, transform.localScale.y, 0f),
                     new Vector2(weaponRange, weaponSize),
                     45, LayerMask.GetMask("Enemy"));
                 break;
-            case Weapon.WeaponDirection.E:
+            case WeaponDirection.E:
                 hits = Physics2D.OverlapBoxAll(
                     transform.position + new Vector3(weaponRange / 2f, 0f, 0f),
                     new Vector2(weaponRange, weaponSize),
                     0, LayerMask.GetMask("Enemy"));
                 break;
-            case Weapon.WeaponDirection.SE:
+            case WeaponDirection.SE:
                 hits = Physics2D.OverlapBoxAll(
                     transform.position + new Vector3(transform.localScale.x, -transform.localScale.y, 0f),
                     new Vector2(weaponRange, weaponSize),
                     -45, LayerMask.GetMask("Enemy"));
                 break;
-            case Weapon.WeaponDirection.S:
+            case WeaponDirection.S:
                 hits = Physics2D.OverlapBoxAll(
                     transform.position + new Vector3(0f, -weaponRange / 2f, 0f),
                     new Vector2(weaponSize, weaponRange),
                     0, LayerMask.GetMask("Enemy"));
                 break;
-            case Weapon.WeaponDirection.SW:
+            case WeaponDirection.SW:
                 hits = Physics2D.OverlapBoxAll(
                     transform.position + new Vector3(-transform.localScale.x, -transform.localScale.y, 0f),
                     new Vector2(weaponRange, weaponSize),
                     45, LayerMask.GetMask("Enemy"));
                 break;
-            case Weapon.WeaponDirection.W:
+            case WeaponDirection.W:
                 hits = Physics2D.OverlapBoxAll(
                     transform.position + new Vector3(-weaponRange / 2f, 0f, 0f),
                     new Vector2(weaponRange, weaponSize),
                     0, LayerMask.GetMask("Enemy"));
                 break;
-            case Weapon.WeaponDirection.NW:
+            case WeaponDirection.NW:
                 hits = Physics2D.OverlapBoxAll(
                     transform.position + new Vector3(-transform.localScale.x, transform.localScale.y, 0f),
                     new Vector2(weaponRange, weaponSize),
@@ -63,7 +75,10 @@ public class MeleeWeapon : Weapon
 
         foreach (var hit in hits)
         {
-            hit.GetComponent<Character>().TakeDamage(weaponDamage);
+            if (hit.gameObject.CompareTag("Enemy"))
+            {
+                hit.GetComponent<Character>().TakeDamage(weaponDamage);
+            }
         }
     }
 }
