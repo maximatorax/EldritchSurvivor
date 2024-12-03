@@ -9,8 +9,13 @@ public class PlayerController : Character
     private float movementY;
     private float speed;
 
+    public float xp;
+    public float xpToLevelUp;
+
     public Weapon[] Weapons = new Weapon[6];
     public Upgrade[] Upgrades = new Upgrade[6];
+
+    public GameObject levelUpMenu;
 
     private void Awake()
     {
@@ -44,6 +49,11 @@ public class PlayerController : Character
     {
         Vector2 movement = new Vector2(movementX, movementY);
         rb.AddForce(movement * speed);
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            xp += xpToLevelUp;
+        }
     }
 
     public override void Attack()
@@ -56,6 +66,36 @@ public class PlayerController : Character
             {
                 weapon.UseWeapon(transform);
                 StartCoroutine(weapon.WeaponCooldown());
+            }
+        }
+    }
+
+    public void GainXp(float xpToGain)
+    {
+        xp += xpToGain;
+        if (xp >= xpToLevelUp)
+        {
+            xp -= xpToLevelUp;
+            LevelUp();
+            xpToLevelUp *= 1.5f;
+        }
+    }
+
+    public void LevelUp()
+    {
+        levelUpMenu.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void UpgradeWeapon(Weapon weaponToUpgrade)
+    {
+        if (!weaponToUpgrade.isUpgradable) return;
+        for (int i = 0; i < Weapons.Length; i++)
+        {
+            if (Weapons[i] == weaponToUpgrade)
+            {
+                Weapons[i] = weaponToUpgrade.GetUpgradeWeapon();
+                Weapons[i].isUpgraded = true;
             }
         }
     }

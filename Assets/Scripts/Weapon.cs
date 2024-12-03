@@ -25,4 +25,21 @@ public class Weapon : ScriptableObject
 
     public virtual void UseWeapon() { }
     public virtual void UseWeapon(Transform transform) { }
+
+    public virtual void LevelUpWeapon()
+    {
+        if (isUpgraded) return;
+        if(weaponLevel < 5) weaponLevel++;
+        else if (weaponLevel == 5) isUpgradable = true;
+    }
+
+    public Weapon GetUpgradeWeapon()
+    {
+        return weaponUpgrade;
+    }
+
+    public Upgrade GetUpgradeToFuse()
+    {
+        return upgradeToFuse;
+    }
 }
